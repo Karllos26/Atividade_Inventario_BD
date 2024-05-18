@@ -1,5 +1,3 @@
-
-```markdown
 # API de Inventário de Ativos de TI
 
 Esta API permite realizar as principais operações de CRUD (Create, Read, Update, Delete) para gerenciar um inventário de ativos de TI de funcionários, salvando os dados em um banco de dados MongoDB.
