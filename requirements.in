@@ -1,0 +1,17 @@
+certifi
+charset-normalizer
+click
+colorama
+dnspython
+Flask
+Flask-SQLAlchemy
+greenlet
+idna
+Jinja2
+MarkupSafe
+pymongo
+requests
+SQLAlchemy
+typing_extensions
+urllib3
+Werkzeug
