@@ -1,7 +1,7 @@
 ---
 # API de Inventário de Ativos de TI
 
-Esta API permite realizar as principais operações de CRUD (Create, Read, Update, Delete) para gerenciar um inventário de ativos de TI de funcionários, salvando os dados em um banco de dados MongoDB.
+Esta API permite gerenciar um inventário de ativos de TI atribuídos a funcionários, utilizando operações de CRUD (Create, Read, Update, Delete) e armazenando os dados em um banco de dados MongoDB.
 
 ## Instalação
 
@@ -96,7 +96,7 @@ listar_funcionarios()
 curl -X GET http://127.0.0.1:5000/api/funcionarios
 ```
 
-### Consultar o inventário completo de um determinado funcionário
+### Consultar o inventário completo de um funcionário
 
 #### Python
 
