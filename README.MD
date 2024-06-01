@@ -15,7 +15,7 @@ Crie um ambiente virtual e instale as dependências:
 ```bash
 python -m venv venv
 source venv/bin/activate   # No Windows use: venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirements.in
 ```
 
 Configure a variável de ambiente MONGO_URI com a URI do seu MongoDB:
