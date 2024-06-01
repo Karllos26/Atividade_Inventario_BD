@@ -1,5 +1,3 @@
-Claro, vou compilar um README completo que abrange todas as formas de interagir com a API, seja por cURL, Python ou inserção direta de JSON. Aqui está:
-
 # API de Inventário de Ativos de TI
 
 Esta API permite gerenciar um inventário de ativos de TI atribuídos a funcionários, utilizando operações de CRUD (Create, Read, Update, Delete) e armazenando os dados em um banco de dados MongoDB.
