@@ -1,7 +1,7 @@
 ---
 # API de Inventário de Ativos de TI
 
-Esta API permite gerenciar um inventário de ativos de TI atribuídos a funcionários, utilizando operações de CRUD (Create, Read, Update, Delete) e armazenando os dados em um banco de dados MongoDB.
+Esta API permite realizar as principais operações de CRUD (Create, Read, Update, Delete) para gerenciar um inventário de ativos de TI de funcionários, salvando os dados em um banco de dados MongoDB.
 
 ## Instalação
 
@@ -59,7 +59,7 @@ def inserir_funcionario():
 inserir_funcionario()
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X POST http://127.0.0.1:5000/api/funcionarios \
@@ -90,13 +90,13 @@ def listar_funcionarios():
 listar_funcionarios()
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X GET http://127.0.0.1:5000/api/funcionarios
 ```
 
-### Consultar o inventário completo de um funcionário
+### Consultar o inventário completo de um determinado funcionário
 
 #### Python
 
@@ -111,7 +111,7 @@ def consultar_funcionario(cpf):
 consultar_funcionario("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X GET http://127.0.0.1:5000/api/funcionarios/12345678901
@@ -135,7 +135,7 @@ def atualizar_nome(cpf, nome):
 atualizar_nome("12345678901", "João Pereira")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901 \
@@ -168,7 +168,7 @@ def atualizar_notebook(cpf, modelo, tag, versao, caracteristicas):
 atualizar_notebook("12345678901", "MacBook Pro", "TAG456", "2021", "M1, 16GB RAM, 1TB SSD")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/notebook \
@@ -196,7 +196,7 @@ def limpar_notebook(cpf):
 limpar_notebook("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/notebook
@@ -217,7 +217,7 @@ def excluir_funcionario(cpf):
 excluir_funcionario("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901
@@ -241,7 +241,7 @@ def atualizar_monitor1(cpf, modelo):
 atualizar_monitor1("12345678901", "Samsung 27'")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/monitor1 \
@@ -266,7 +266,7 @@ def limpar_monitor1(cpf):
 limpar_monitor1("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/monitor1
@@ -290,7 +290,7 @@ def atualizar_monitor2(cpf, modelo):
 atualizar_monitor2("12345678901", "LG 24'")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/monitor2 \
@@ -315,7 +315,7 @@ def limpar_monitor2(cpf):
 limpar_monitor2("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/monitor2
@@ -341,7 +341,7 @@ ionarios/{cpf}/teclado'
 atualizar_teclado("12345678901", "Logitech K120")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/teclado \
@@ -366,7 +366,7 @@ def limpar_teclado(cpf):
 limpar_teclado("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/teclado
@@ -390,7 +390,7 @@ def atualizar_mouse(cpf, modelo):
 atualizar_mouse("12345678901", "Logitech M185")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/mouse \
@@ -415,7 +415,7 @@ def limpar_mouse(cpf):
 limpar_mouse("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/mouse
@@ -439,7 +439,7 @@ def atualizar_nobreak(cpf, modelo):
 atualizar_nobreak("12345678901", "APC Back-UPS 600")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/nobreak \
@@ -464,7 +464,7 @@ def limpar_nobreak(cpf):
 limpar_nobreak("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/nobreak
@@ -493,7 +493,7 @@ def atualizar_desktop(cpf, modelo, tag, versao, caracteristicas):
 atualizar_desktop("12345678901", "HP EliteDesk", "DT456", "2022", "Core i5, 8GB RAM, 256GB SSD")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/desktop \
@@ -521,7 +521,7 @@ def limpar_desktop(cpf):
 limpar_desktop("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/desktop
@@ -545,7 +545,7 @@ def atualizar_headset(cpf, modelo):
 atualizar_headset("12345678901", "Jabra Evolve 75")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/headset \
@@ -570,7 +570,7 @@ def limpar_headset(cpf):
 limpar_headset("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/headset
@@ -597,7 +597,7 @@ def atualizar_celular(cpf, modelo, numero):
 atualizar_celular("12345678901", "iPhone 12", "99999-9999")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/celular \
@@ -623,7 +623,7 @@ def limpar_celular(cpf):
 limpar_celular("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/celular
@@ -647,7 +647,7 @@ def atualizar_acessorios(cpf, descricao):
 atualizar_acessorios("12345678901", "Dock Station, Cabo HDMI")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/acessorios \
@@ -674,7 +674,7 @@ def limpar_acessorios(cpf):
 limpar_acessorios("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/acessorios
@@ -697,10 +697,11 @@ def excluir_funcionario(cpf):
 excluir_funcionario("12345678901")
 ```
 
-#### cURL
+#### CURL
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901
 ```
+
 
 **Nota**: Certifique-se de ter o MongoDB em execução e acessível a partir do URI fornecido antes de iniciar o servidor Flask.
