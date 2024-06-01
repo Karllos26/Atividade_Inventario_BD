@@ -22,7 +22,7 @@ pip install -r requirements.txt
 Configure a variável de ambiente MONGO_URI com a URI do seu MongoDB:
 
 ```bash
-export MONGO_URI='mongodb://localhost:27017/'   # No Windows use: set MONGO_URI='mongodb://localhost:27017/'
+export MONGO_URI='mongodb://localhost:27017/'
 ```
 
 Execute a aplicação:
