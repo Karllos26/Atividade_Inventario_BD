@@ -1,4 +1,3 @@
----
 # API de Inventário de Ativos de TI
 
 Esta API permite realizar as principais operações de CRUD (Create, Read, Update, Delete) para gerenciar um inventário de ativos de TI de funcionários, salvando os dados em um banco de dados MongoDB.
@@ -44,13 +43,25 @@ def inserir_funcionario():
     url = 'http://127.0.0.1:5000/api/funcionarios'
     headers = {'Content-Type': 'application/json'}
     data = {
-        "cpf": "12345678901",
-        "nome": "João Silva",
-        "notebook_modelo": "Dell XPS 13",
-        "notebook_tag": "TAG123",
+        "cpf": "12345678903",
+        "nome": "Ana Oliveira",
+        "notebook_modelo": "Lenovo ThinkPad X1 Carbon",
+        "notebook_tag": "TAG456",
         "notebook_versao": "2023",
         "notebook_caracteristicas": "Core i7, 16GB RAM, 512GB SSD",
-        # Adicione outras informações aqui conforme necessário
+        "monitor1_modelo": "LG Ultrawide 34",
+        "monitor2_modelo": "Dell 27",
+        "teclado_modelo": "Microsoft Ergonomic Keyboard",
+        "mouse_modelo": "Logitech MX Master 3",
+        "nobreak_modelo": "APC 1000VA",
+        "desktop_modelo": "Dell OptiPlex 7080",
+        "desktop_tag": "TAG789",
+        "desktop_versao": "2022",
+        "desktop_caracteristicas": "Core i5, 8GB RAM, 256GB SSD",
+        "headset_modelo": "Sennheiser HD 660S",
+        "celular_modelo": "Samsung Galaxy S21",
+        "celular_numero": "123456789",
+        "acessorios": "Dock Station, Monitor Stand"
     }
 
     response = requests.post(url, headers=headers, json=data)
@@ -65,13 +76,25 @@ inserir_funcionario()
 curl -X POST http://127.0.0.1:5000/api/funcionarios \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
-    "cpf": "12345678901",
-    "nome": "João Silva",
-    "notebook_modelo": "Dell XPS 13",
-    "notebook_tag": "TAG123",
+    "cpf": "12345678903",
+    "nome": "Ana Oliveira",
+    "notebook_modelo": "Lenovo ThinkPad X1 Carbon",
+    "notebook_tag": "TAG456",
     "notebook_versao": "2023",
     "notebook_caracteristicas": "Core i7, 16GB RAM, 512GB SSD",
-    # Adicione outras informações aqui conforme necessário
+    "monitor1_modelo": "LG Ultrawide 34",
+    "monitor2_modelo": "Dell 27",
+    "teclado_modelo": "Microsoft Ergonomic Keyboard",
+    "mouse_modelo": "Logitech MX Master 3",
+    "nobreak_modelo": "APC 1000VA",
+    "desktop_modelo": "Dell OptiPlex 7080",
+    "desktop_tag": "TAG789",
+    "desktop_versao": "2022",
+    "desktop_caracteristicas": "Core i5, 8GB RAM, 256GB SSD",
+    "headset_modelo": "Sennheiser HD 660S",
+    "celular_modelo": "Samsung Galaxy S21",
+    "celular_numero": "123456789",
+    "acessorios": "Dock Station, Monitor Stand"
 }'
 ```
 
@@ -108,13 +131,13 @@ def consultar_funcionario(cpf):
     response = requests.get(url)
     print(response.json())
 
-consultar_funcionario("12345678901")
+consultar_funcionario("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X GET http://127.0.0.1:5000/api/funcionarios/12345678901
+curl -X GET http://127.0.0.1:5000/api/funcionarios/12345678903
 ```
 
 ### Atualizar o nome do funcionário tendo como referência o CPF
@@ -132,16 +155,16 @@ def atualizar_nome(cpf, nome):
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_nome("12345678901", "João Pereira")
+atualizar_nome("12345678903", "Ana Maria Oliveira")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901 \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903 \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
-    "nome": "João Pereira"
+    "nome": "Ana Maria Oliveira"
 }'
 ```
 
@@ -165,17 +188,17 @@ def atualizar_notebook(cpf, modelo, tag, versao, caracteristicas):
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_notebook("12345678901", "MacBook Pro", "TAG456", "2021", "M1, 16GB RAM, 1TB SSD")
+atualizar_notebook("12345678903", "MacBook Pro", "TAG789", "2021", "M1, 16GB RAM, 1TB SSD")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/notebook \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903/notebook \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
     "modelo": "MacBook Pro",
-    "tag": "TAG456",
+    "tag": "TAG789",
     "versao": "2021",
     "caracteristicas": "M1, 16GB RAM, 1TB SSD"
 }'
@@ -193,13 +216,13 @@ def limpar_notebook(cpf):
     response = requests.delete(url)
     print(response.json())
 
-limpar_notebook("12345678901")
+limpar_notebook("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/notebook
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903/notebook
 ```
 
 ### Excluir um funcionário
@@ -214,13 +237,13 @@ def excluir_funcionario(cpf):
     response = requests.delete(url)
     print(response.json())
 
-excluir_funcionario("12345678901")
+excluir_funcionario("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903
 ```
 
 ### Atualizar as informações do ativo monitor 1
@@ -238,13 +261,13 @@ def atualizar_monitor1(cpf, modelo):
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_monitor1("12345678901", "Samsung 27'")
+atualizar_monitor1("12345678903", "Samsung 27'")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/monitor1 \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903/monitor1 \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
     "modelo": "Samsung 27'"
@@ -263,13 +286,13 @@ def limpar_monitor1(cpf):
     response = requests.delete(url)
     print(response.json())
 
-limpar_monitor1("12345678901")
+limpar_monitor1("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/monitor1
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903/monitor1
 ```
 
 ### Atualizar as informações do ativo monitor 2
@@ -279,7 +302,9 @@ curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/monitor1
 ```python
 import requests
 
-def atualizar_monitor2(cpf, modelo):
+def atualizar_monitor2(c
+
+pf, modelo):
     url = f'http://127.0.0.1:5000/api/funcionarios/{cpf}/monitor2'
     headers = {'Content-Type': 'application/json'}
     data = {"modelo": modelo}
@@ -287,16 +312,16 @@ def atualizar_monitor2(cpf, modelo):
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_monitor2("12345678901", "LG 24'")
+atualizar_monitor2("12345678903", "Dell 27'")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/monitor2 \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903/monitor2 \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
-    "modelo": "LG 24'"
+    "modelo": "Dell 27'"
 }'
 ```
 
@@ -312,13 +337,13 @@ def limpar_monitor2(cpf):
     response = requests.delete(url)
     print(response.json())
 
-limpar_monitor2("12345678901")
+limpar_monitor2("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/monitor2
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903/monitor2
 ```
 
 ### Atualizar as informações do ativo teclado
@@ -329,25 +354,23 @@ curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/monitor2
 import requests
 
 def atualizar_teclado(cpf, modelo):
-    url = f'http://127.0.0.1:5000/api/func
-
-ionarios/{cpf}/teclado'
+    url = f'http://127.0.0.1:5000/api/funcionarios/{cpf}/teclado'
     headers = {'Content-Type': 'application/json'}
     data = {"modelo": modelo}
 
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_teclado("12345678901", "Logitech K120")
+atualizar_teclado("12345678903", "Razer BlackWidow")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/teclado \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903/teclado \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
-    "modelo": "Logitech K120"
+    "modelo": "Razer BlackWidow"
 }'
 ```
 
@@ -363,13 +386,13 @@ def limpar_teclado(cpf):
     response = requests.delete(url)
     print(response.json())
 
-limpar_teclado("12345678901")
+limpar_teclado("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/teclado
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903/teclado
 ```
 
 ### Atualizar as informações do ativo mouse
@@ -387,16 +410,16 @@ def atualizar_mouse(cpf, modelo):
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_mouse("12345678901", "Logitech M185")
+atualizar_mouse("12345678903", "Logitech G Pro")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/mouse \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903/mouse \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
-    "modelo": "Logitech M185"
+    "modelo": "Logitech G Pro"
 }'
 ```
 
@@ -412,13 +435,13 @@ def limpar_mouse(cpf):
     response = requests.delete(url)
     print(response.json())
 
-limpar_mouse("12345678901")
+limpar_mouse("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/mouse
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903/mouse
 ```
 
 ### Atualizar as informações do ativo nobreak
@@ -436,16 +459,16 @@ def atualizar_nobreak(cpf, modelo):
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_nobreak("12345678901", "APC Back-UPS 600")
+atualizar_nobreak("12345678903", "CyberPower 1500VA")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/nobreak \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903/nobreak \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
-    "modelo": "APC Back-UPS 600"
+    "modelo": "CyberPower 1500VA"
 }'
 ```
 
@@ -461,13 +484,13 @@ def limpar_nobreak(cpf):
     response = requests.delete(url)
     print(response.json())
 
-limpar_nobreak("12345678901")
+limpar_nobreak("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/nobreak
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903/nobreak
 ```
 
 ### Atualizar as informações do ativo desktop
@@ -490,19 +513,19 @@ def atualizar_desktop(cpf, modelo, tag, versao, caracteristicas):
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_desktop("12345678901", "HP EliteDesk", "DT456", "2022", "Core i5, 8GB RAM, 256GB SSD")
+atualizar_desktop("12345678903", "HP EliteDesk", "TAG123", "2023", "Core i9, 32GB RAM, 1TB SSD")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/desktop \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903/desktop \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
     "modelo": "HP EliteDesk",
-    "tag": "DT456",
-    "versao": "2022",
-    "caracteristicas": "Core i5, 8GB RAM, 256GB SSD"
+    "tag": "TAG123",
+    "versao": "2023",
+    "caracteristicas": "Core i9, 32GB RAM, 1TB SSD"
 }'
 ```
 
@@ -518,13 +541,13 @@ def limpar_desktop(cpf):
     response = requests.delete(url)
     print(response.json())
 
-limpar_desktop("12345678901")
+limpar_desktop("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/desktop
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903/desktop
 ```
 
 ### Atualizar as informações do ativo headset
@@ -542,16 +565,16 @@ def atualizar_headset(cpf, modelo):
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_headset("12345678901", "Jabra Evolve 75")
+atualizar_headset("12345678903", "Sony WH-1000XM4")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/headset \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903/headset \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
-    "modelo": "Jabra Evolve 75"
+    "modelo": "Sony WH-1000XM4"
 }'
 ```
 
@@ -567,13 +590,13 @@ def limpar_headset(cpf):
     response = requests.delete(url)
     print(response.json())
 
-limpar_headset("12345678901")
+limpar_headset("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/headset
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903/headset
 ```
 
 ### Atualizar as informações do ativo celular
@@ -594,17 +617,19 @@ def atualizar_celular(cpf, modelo, numero):
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_celular("12345678901", "iPhone 12", "99999-9999")
+atualizar_celular("12345678903", "iPhone 13 Pro", "987654321")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/celular \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903/celular \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
-    "modelo": "iPhone 12",
-    "numero": "99999-9999"
+    "modelo": "i
+
+Phone 13 Pro",
+    "numero": "987654321"
 }'
 ```
 
@@ -620,88 +645,68 @@ def limpar_celular(cpf):
     response = requests.delete(url)
     print(response.json())
 
-limpar_celular("12345678901")
+limpar_celular("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/celular
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903/celular
 ```
 
-### Atualizar as informações do ativo acessórios
+### Atualizar as informações do ativo notebook
 
 #### Python
 
 ```python
 import requests
 
-def atualizar_acessorios(cpf, descricao):
-    url = f'http://127.0.0.1:5000/api/funcionarios/{cpf}/acessorios'
+def atualizar_notebook(cpf, modelo, tag, versao, caracteristicas):
+    url = f'http://127.0.0.1:5000/api/funcionarios/{cpf}/notebook'
     headers = {'Content-Type': 'application/json'}
-    data = {"acessorios": descricao}
+    data = {
+        "modelo": modelo,
+        "tag": tag,
+        "versao": versao,
+        "caracteristicas": caracteristicas
+    }
 
     response = requests.put(url, headers=headers, json=data)
     print(response.json())
 
-atualizar_acessorios("12345678901", "Dock Station, Cabo HDMI")
+atualizar_notebook("12345678903", "Dell XPS", "TAG456", "2022", "Core i7, 16GB RAM, 512GB SSD")
 ```
 
 #### CURL
 
 ```bash
-curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678901/acessorios \
+curl -X PUT http://127.0.0.1:5000/api/funcionarios/12345678903/notebook \
 -H "Content-Type: application/json; charset=utf-8" \
 --data-raw '{
-
-
-    "acessorios": "Dock Station, Cabo HDMI"
+    "modelo": "Dell XPS",
+    "tag": "TAG456",
+    "versao": "2022",
+    "caracteristicas": "Core i7, 16GB RAM, 512GB SSD"
 }'
 ```
 
-### Limpar as informações do ativo acessórios
+### Limpar as informações do ativo notebook
 
 #### Python
 
 ```python
 import requests
 
-def limpar_acessorios(cpf):
-    url = f'http://127.0.0.1:5000/api/funcionarios/{cpf}/acessorios'
+def limpar_notebook(cpf):
+    url = f'http://127.0.0.1:5000/api/funcionarios/{cpf}/notebook'
     response = requests.delete(url)
     print(response.json())
 
-limpar_acessorios("12345678901")
+limpar_notebook("12345678903")
 ```
 
 #### CURL
 
 ```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901/acessorios
+curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678903/notebook
 ```
-
-## Exclusão de um Funcionário
-
-### Excluir um funcionário se ele não possuir ativos
-
-#### Python
-
-```python
-import requests
-
-def excluir_funcionario(cpf):
-    url = f'http://127.0.0.1:5000/api/funcionarios/{cpf}'
-    response = requests.delete(url)
-    print(response.json())
-
-excluir_funcionario("12345678901")
-```
-
-#### CURL
-
-```bash
-curl -X DELETE http://127.0.0.1:5000/api/funcionarios/12345678901
-```
-
-
-**Nota**: Certifique-se de ter o MongoDB em execução e acessível a partir do URI fornecido antes de iniciar o servidor Flask.

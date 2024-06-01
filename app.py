@@ -140,13 +140,24 @@ def delete_asset(cpf, asset):
 def delete_funcionario(cpf):
     funcionario = collection.find_one({'cpf': cpf})
     if funcionario:
-        if any(funcionario[asset] for asset in funcionario if asset != 'cpf' and asset != 'nome'):
+        # Verifica se todos os ativos são None ou null
+        ativos = ['notebook', 'monitor1', 'monitor2', 'teclado', 'mouse', 'nobreak', 'desktop', 'headset', 'celular', 'acessorios']
+        ativos_vazios = True
+        for ativo in ativos:
+            if ativo in funcionario and funcionario[ativo] is not None:
+                if isinstance(funcionario[ativo], dict):
+                    if any(value is not None for value in funcionario[ativo].values()):
+                        ativos_vazios = False
+                        break
+                else:
+                    ativos_vazios = False
+                    break
+        
+        if not ativos_vazios:
             return jsonify({'message': 'Funcionário possui ativos e não pode ser excluído!'}), 400
 
         collection.delete_one({'cpf': cpf})
         return jsonify({'message': 'Funcionário excluído com sucesso!'}), 200
-
-    return jsonify({'message': 'Funcionário não encontrado!'}), 404
 
 if __name__ == '__main__':
     app.run(debug=True)
